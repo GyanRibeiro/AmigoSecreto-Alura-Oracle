@@ -11,7 +11,7 @@ function adicionarAmigo() {
         console.log(nomeAmigos);
         document.getElementById('amigo').value = "";
 
-        exibirListaDeAmigos()
+        exibirListaDeAmigos();
     }
     
     // amigo == '' ? alert("Por favor, insira um nome.") : nomeAmigos.push(amigo);
@@ -27,4 +27,21 @@ function exibirListaDeAmigos() {
         li.innerHTML = item;
         ListaU.appendChild(li);
     });
+}
+
+//Função para sortear os nomes da lista e exibir o resultado do sorteio na tela
+function sortearAmigo() {
+    
+    let ListaU = document.getElementById('listaAmigos');
+    ListaU.innerHTML = "";
+
+    if (nomeAmigos.length === 0) {
+        return;
+    } else {
+        let resultado = document.getElementById('resultado');
+        let indiceAleatorio = Math.floor(Math.random() * nomeAmigos.length);
+        let sorteado = nomeAmigos[indiceAleatorio];
+
+        resultado.innerHTML = `O amigo Secreto é: ${sorteado}`;
+    }
 }
